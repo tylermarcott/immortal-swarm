@@ -81,6 +81,7 @@ const people = [{
 
 
 
+
 function drawPeople() {
   locations.forEach((location) => {
     // console.log(location)
@@ -94,23 +95,28 @@ function drawPeople() {
 //NOTE: foreach shortcut to make a foreach layout
 
 function peopleRun() {
+
+  // NOTE: concept: in the forEach loop below, people and person. People is our object, person could be named anything you want. It's just more of a naming convention. 1 person in your of people object
+
   people.forEach((person) => {
     if (person.emoji != '🦇') {
 
       let randomIndex = Math.floor(Math.random() * locations.length)
-      console.log(randomIndex)
       let newArea = locations[randomIndex]
       person.location = newArea
-
-
     }
   });
 }
 
+// daylight countdown variable
+let daylightRemaining = 8
 
 
-
+// FIXME: for some reason randomly, clicks on people will not turn them into bats
 function attack(emoji) {
+
+  // let daylightRemaining = 8
+
   console.log(emoji)
 
   let bat = '🦇'
@@ -126,7 +132,17 @@ function attack(emoji) {
   drawPeople()
   peopleRun()
   checkScore()
+
+  daylightRemaining -= 1
+
+  if (daylightRemaining == 0) {
+    window.alert('The humans survived and all the vampires perished!🌞💀')
+  }
+
 }
+
+
+
 
 function checkScore() {
   let bat = '🦇'
