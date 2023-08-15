@@ -80,6 +80,17 @@ const people = [{
 ]
 
 
+// TODO: create function that chooses a person to be a vamp hunter
+
+function chooseHunter() {
+  let vampireHunter = ''
+
+  let randomIndex = Math.floor(Math.random() * people.length)
+
+
+
+
+}
 
 
 function drawPeople() {
@@ -111,26 +122,16 @@ function peopleRun() {
 // daylight countdown variable
 let daylightRemaining = 8
 
-
-// FIXME: for some reason randomly, clicks on people will not turn them into bats
 function attack(emoji) {
-
-  // let daylightRemaining = 8
-
-  console.log(emoji)
-
   let bat = '🦇'
 
-  // when a button is clicked, get all the people who have the same location as the button
-
   let inArea = people.filter((people) => people.location == emoji)
+  inArea.map((people) => people.picture = bat)
 
-  let peoplePictures = inArea.map((people) => people.picture = bat)
+  // NOTE: was able to fix my issue where not all people were being turned into bats on attacks by changing the order of peopleRun() and drawPeople()! ***keep in mind the order of the functions that you're calling.
 
-  // console.log(peoplePictures)
-
-  drawPeople()
   peopleRun()
+  drawPeople()
   checkScore()
 
   daylightRemaining -= 1
@@ -140,9 +141,6 @@ function attack(emoji) {
   }
 
 }
-
-
-
 
 function checkScore() {
   let bat = '🦇'
