@@ -61,5 +61,42 @@ const people = [{
   name: 'Jeremy',
   picture: '🦹',
   location: '🏢',
-}
+},
+  // {
+  //   name: 'Jessica',
+  //   picture: '🧟‍♂️',
+  //   location: '🏣',
+  // },
+  // {
+  //   name: 'Peaches',
+  //   picture: '🧞‍♀️',
+  //   location: '🏣',
+  // },
+  // {
+  //   name: 'Mr. Anderson',
+  //   picture: '👨🏽‍🦳',
+  //   location: '🏣',
+  // }
 ]
+
+
+
+function drawPeople() {
+  locations.forEach((location) => {
+    console.log(location)
+    let inArea = people.filter((people) => people.location == location)
+    let peopleEmojis = inArea.map((people) => people.picture + people.name)
+    console.log(peopleEmojis)
+    document.getElementById(location).innerText = peopleEmojis.join(' ')
+
+
+
+  })
+}
+
+function attack() {
+
+}
+
+
+drawPeople()
