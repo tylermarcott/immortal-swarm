@@ -93,6 +93,8 @@ function chooseHunter() {
 }
 
 
+
+
 function drawPeople() {
   locations.forEach((location) => {
     // console.log(location)
